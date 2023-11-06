@@ -26,6 +26,10 @@ function registrarEntrada() {
         contagemPessoas += contador;
         totalPico += contador;
         totalPessoas = Math.max(contagemPessoas, totalPessoas);
+        // Cria um item de lista e o adiciona à lista de horários de entrada
+        const item = document.createElement('li');
+        item.appendChild(document.createTextNode(`Entrada: ${horaAtual}- ${contador} pessoa(s)`));
+        listaHorariosEntrada.appendChild(item);
     }
 
     // Atualiza os valores exibidos na página
@@ -33,10 +37,7 @@ function registrarEntrada() {
     document.getElementById("totalPessoas").textContent = totalPessoas.toString();
     document.getElementById("totalPico").textContent = totalPico.toString();
 
-    // Cria um item de lista e o adiciona à lista de horários de entrada
-    const item = document.createElement('li');
-    item.appendChild(document.createTextNode(`Entrada: ${horaAtual}- ${contador} pessoa(s)`));
-    listaHorariosEntrada.appendChild(item);
+
 }
 
 // Função para registrar a saída de passageiros
