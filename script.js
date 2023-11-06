@@ -5,8 +5,8 @@ let listaHorariosSaida = document.getElementById('horariosSaida');
 // Função para registrar a entrada de passageiros
 function registrarEntrada() {
     // Obtém a data e hora atuais
-    const now = new Date();
-    const horaAtual = now.toLocaleString('pt-BR');
+    const agora = new Date();
+    const horaAtual = agora.toLocaleString('pt-BR');
 
     // Obtém os valores de hora de início e fim do pico da linha
     const horaInicioPico = new Date(document.getElementById("horaInicioPico").value);
@@ -21,7 +21,7 @@ function registrarEntrada() {
     let contador = parseFloat(document.getElementById("contador").textContent);
 
     // Verifica se a hora atual está dentro do intervalo de pico e se o sensor indica entrada
-    if (now >= horaInicioPico && now <= horaFinalPico && sensorEntrada === "sim" && viagemEmAndamento === "sim") {
+    if (agora >= horaInicioPico && agora <= horaFinalPico && sensorEntrada === "sim" && viagemEmAndamento === "sim") {
         // Atualiza as contagens e totais de passageiros
         contagemPessoas += contador;
         totalPico += contador;
@@ -43,8 +43,8 @@ function registrarEntrada() {
 // Função para registrar a saída de passageiros
 function registrarSaida() {
     // Obtém a data e hora atuais
-    const now = new Date();
-    const horaAtual = now.toLocaleString('pt-BR');
+    const agora = new Date();
+    const horaAtual = agora.toLocaleString('pt-BR');
 
     // Obtém os valores de hora de início e fim do pico da linha
     const horaInicioPico = new Date(document.getElementById("horaInicioPico").value);
@@ -57,7 +57,7 @@ function registrarSaida() {
     let contador = parseFloat(document.getElementById("contador").textContent);
 
     // Verifica se a hora atual está dentro do intervalo de pico e se o sensor indica saída
-    if (now >= horaInicioPico && now <= horaFinalPico && sensorSaida === "sim" && viagemEmAndamento === "sim" && contagemPessoas >= contador) {
+    if (agora >= horaInicioPico && agora <= horaFinalPico && sensorSaida === "sim" && viagemEmAndamento === "sim" && contagemPessoas >= contador) {
         // Atualiza a contagem de pessoas
         contagemPessoas -= contador;
     }
