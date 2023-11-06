@@ -60,13 +60,14 @@ function registrarSaida() {
     if (agora >= horaInicioPico && agora <= horaFinalPico && sensorSaida === "sim" && viagemEmAndamento === "sim" && contagemPessoas >= contador) {
         // Atualiza a contagem de pessoas
         contagemPessoas -= contador;
+         // Cria um item de lista e o adiciona à lista de horários de saída
+         const item = document.createElement('li');
+         item.appendChild(document.createTextNode(`Saída: ${horaAtual} - ${contador} pessoa(s)`));
+         listaHorariosSaida.appendChild(item);
     }
 
     // Atualiza o valor exibido na página
     document.getElementById("contagemPessoas").textContent = contagemPessoas.toString();
 
-    // Cria um item de lista e o adiciona à lista de horários de saída
-    const item = document.createElement('li');
-    item.appendChild(document.createTextNode(`Saída: ${horaAtual} - ${contador} pessoa(s)`));
-    listaHorariosSaida.appendChild(item);
+   
 }
